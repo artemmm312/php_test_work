@@ -21,7 +21,7 @@ class Group
 		return $this->name;
 	}
 
-	public function __set($name, $value)
+/* 	public function __set($name, $value)
 	{
 		switch ($name) {
 			case 'name':
@@ -41,7 +41,7 @@ class Group
 			case 'teams':
 				return $this->teams;
 		}
-	}
+	} */
 
 	public function addTeam(Team $team)
 	{
@@ -51,9 +51,9 @@ class Group
 
 	public function generateCalendar()
 	{
-		if (count($this->teams) % 2 != 0) {   //проверяем четное ли количество команд, и если нет то добавляем в конец строчку "slip" - она нужна будет для пропуска игры
+		if (count($this->teams) % 2 !== 0)    //проверяем четное ли количество команд, и если нет то добавляем в конец строчку "slip" - она нужна будет для пропуска игры
 			array_push($this->teams, "slip");
-		}
+
 		$count = count($this->teams);   //присваиваем длинну массива (количество команд) переменной, что бы не использовать функцию в условиях цикла
 		$row2 = array_splice($this->teams, ($count / 2));   //присваиваем переменной вторую часть массива
 		$row1 = $this->teams;   //присваиваем переменной первую часть массива
@@ -65,7 +65,7 @@ class Group
 			if ($i == 1) {   //самый первый тур
 				for ($j = 0; $j < $count / 2; $j++) {   //цикл для игр в туре
 					if ($row1[$j] !== "slip" && $row2[$j] !== "slip")   //проверяем что бы значения были отличными от "slip" и в первом и во втором массиве команд
-						echo $row1[$j] .' - '. $row2[$j] . '<br />';   //если true, то происходит игра
+						echo $row1[$j] . ' - ' . $row2[$j] . '<br />';   //если true, то происходит игра
 					else continue;   //а если false то игра пропускается и переходит к следующей
 				}
 			} else {   //все последующие туры
@@ -75,7 +75,7 @@ class Group
 				array_unshift($row1, $first);   //и в конце добавляем (возвращаем) самую первую команду в начало первого массива
 				for ($j = 0; $j < $count / 2; $j++)
 					if ($row1[$j] !== "slip" && $row2[$j] !== "slip")
-						echo $row1[$j] .' - '. $row2[$j] . '<br />';
+						echo $row1[$j] . ' - ' . $row2[$j] . '<br />';
 					else continue;
 			}
 		}
