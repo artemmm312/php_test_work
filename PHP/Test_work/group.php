@@ -40,7 +40,6 @@ class Group
 				return $this->name;
 			case 'teams':
 				return $this->teams;
-				break;
 		}
 	}
 
