@@ -58,7 +58,7 @@ class Group
 		$row2 = array_splice($this->teams, ($count / 2));   //присваиваем переменной вторую часть массива
 		$row1 = $this->teams;   //присваиваем переменной первую часть массива
 		$row2 = array_reverse($row2);   //переварачиваем второй массив что бы следовать круговой системе
-		//var_dump($row2);
+		//var_dump($row1);
 		//var_dump($row2);
 		for ($i = 1; $i < $count; $i++) {   //глобальный цикл количества туров
 			echo $this->name . ". Round $i <br />";
