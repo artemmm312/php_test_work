@@ -12,12 +12,12 @@ class Team
 
 	public function __toString()
 	{
-		if($this->country !== NULL)
-			return $this->name .' ('.$this->country.')';
+		if ($this->country !== NULL)
+			return $this->name . ' (' . $this->country . ')';
 		else return $this->name;
 	}
 
-	public function __set($name, $value)
+/* 	public function __set($name, $value)
 	{
 		switch ($name) {
 			case 'name':
@@ -37,7 +37,7 @@ class Team
 			case 'country':
 				return $this->country;
 		}
-	}
+	} */
 
 	public function setCountry($country)
 	{
